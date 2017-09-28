@@ -46,8 +46,8 @@ for k in xrange(Nsim):
 
     travelled_distance = model_lego.wheel_radius * (measurement - measurement_prev) #*dt/dt
 
-    xhat[0, k + 1] = xhat[0, k] + 0.5 * (travelled_distance[0] + travelled_distance[1]) * np.cos(xk[2, k])
-    xhat[1, k + 1] = xhat[1, k] + 0.5 * (travelled_distance[0] + travelled_distance[1]) * np.sin(xk[2, k])
+    xhat[0, k + 1] = xhat[0, k] + 0.5 * (travelled_distance[0] + travelled_distance[1]) * np.cos(xhat[2, k])
+    xhat[1, k + 1] = xhat[1, k] + 0.5 * (travelled_distance[0] + travelled_distance[1]) * np.sin(xhat[2, k])
     xhat[2, k + 1] = xhat[2, k] + (travelled_distance[1] - travelled_distance[0]) / model_lego.wheel_distance
 
     w_target = np.arctan2((x_target[1] - xk[1, k]), (x_target[0] - xk[0, k]))
